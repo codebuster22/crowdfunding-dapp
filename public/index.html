@@ -10,6 +10,64 @@
     
     <h1> Crowdfunding dApp </h1>
 
+    <form>
+        <div class="custom-input">
+            <label for="proposalName">
+                Proposal Name
+            </label>
+            <input type="text" id="proposalName" name="proposalName" placeholder="Amazing Proposal" >
+        </div>
+        <div class="custom-input">
+            <label for="documentHash">
+                Document Hash
+            </label>
+            <input type="text" id="documentHash" name="documentHash" placeholder="Amazing Hash" >
+        </div>
+        <div class="custom-input">
+            <label for="maximumTarget">
+                Maximum Target in ethers
+            </label>
+            <input type="number" id="maximumTarget" name="maximumTarget" placeholder="1000000000" >
+        </div>
+        <div class="custom-input">
+            <label for="minimumTarget">
+                Minimum Target in ethers
+            </label>
+            <input type="number" id="minimumTarget" name="minimumTarget" placeholder="1000" >
+        </div>
+        <div class="custom-input">
+            <label for="duration">
+                Duration
+            </label>
+            <input type="number" id="duration" name="duration" placeholder="7" >
+        </div>
+        <button type="button">
+            Request Campaign
+        </button>
+    </form>
+
+    <div class="proposal-card">
+        <div class="proposal-header">
+            Proposal Title
+        </div>
+        <div class="proposal-body">
+            <div class="proposal-description">
+                Amaing Description
+            </div>
+            <div class="proposal-target">
+                <p>Maximum Target</p>
+                <p>Minimum Target</p>
+            </div>
+            <div class="proposal-duration">
+                Day remaining
+            </div>
+            <div class="proposal-status">
+                Total votes<br>
+                State of the proposal
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="../node_modules/web3/dist/web3.min.js" ></script>
     <script type="text/javascript" src="../src/js/getWeb3.js"></script>
     <script type="text/javascript" src="../src//js/app.js"></script>
