@@ -1,6 +1,7 @@
 const listenToNewOwnerAdded = () => {
     state.dao.events.NewOwnerAdded().on('data', (event) => {
         console.log(event);
+        alert("New owner added");
     }).on('error', (error, data) => {
         console.log(error, data);
     });
@@ -17,7 +18,8 @@ const listenToNewProposalCreated = () => {
 
 const listenToVoteCasted = () => {
     state.dao.events.VoteCasted().on('data', (event) => {
-        console.log(event)
+        console.log(event);
+        alert("New Vote Casted");
     }).on('error', (error, data) => {
         console.log(error, data);
     });

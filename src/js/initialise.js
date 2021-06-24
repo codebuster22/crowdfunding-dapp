@@ -13,11 +13,17 @@ const startListening = () => {
     listenToVoteCasted();
 }
 
+const updateAccountState = async (address) => {
+    state.currentAccount = address ;
+    await changeView(state.currentAccount);
+}
+
 getWeb3().then(
     async (data)=>{
         state.web3 = data;
-        state.accounts = await state.web3.eth.getAccounts();
         instantiateContract(state.web3);
+        state.accounts = await state.web3.eth.getAccounts();
+        await updateAccountState(state.accounts[0]);
         startListening();
     }
 );

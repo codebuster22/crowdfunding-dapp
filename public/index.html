@@ -11,7 +11,40 @@
     <body>
         <h1>Crowdfunding dApp</h1>
 
-        <form>
+        <form id="currentAccount" >
+            <div class="custom-input">
+                <label for="currentAddress"> Address </label>
+                <input
+                    type="text"
+                    id="currentAddress"
+                    name="currentAddress"
+                    placeholder="Address"
+                    onchange="handleInput"
+                />
+            </div>
+            <button type="button" class="changeAddress" id="changeAddress" onclick="handleClick">
+                Change Address
+            </button>
+        </form>
+
+        <form id="addOwnerForm" class="">
+            <div class="custom-input">
+                <label for="ownerAddress"> New Owner Address </label>
+                <input
+                    type="text"
+                    id="ownerAddress"
+                    name="ownerAddress"
+                    placeholder="Owner Address"
+                    onchange="handleInput"
+                />
+            </div>
+            <button type="button" class="addOwner" id="addOwner" onclick="handleClick">
+                Add New Owner
+            </button>
+        </form>
+
+        <form id="proposalForm" class="">
+            <h3>Proposal Form:-</h3>
             <div class="custom-input">
                 <label for="proposalName"> Proposal Name </label>
                 <input
@@ -65,36 +98,8 @@
             <button type="button" id="requestCampaign">Request Campaign</button>
         </form>
 
-        <div class="proposal-card">
-            <div class="proposal-header">Proposal Title</div>
-            <div class="proposal-body">
-                <div class="proposal-description">Amaing Description</div>
-                <div class="proposal-target">
-                    <p>Maximum Target</p>
-                    <p>Minimum Target</p>
-                </div>
-                <div class="proposal-duration">Day remaining</div>
-                <div class="proposal-status">
-                    Total votes<br />
-                    State of the proposal
-                </div>
-            </div>
-            <div class="proposal-action">
-                <button
-                    type="button"
-                    class="proposal-accept"
-                    id="proposalApprove"
-                >
-                    Approve
-                </button>
-                <button
-                    type="button"
-                    class="proposal-reject"
-                    id="proposalReject"
-                >
-                    Reject
-                </button>
-            </div>
+        <div id="proposalDashboard" class="">
+
         </div>
 
         <script
