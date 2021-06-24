@@ -11,7 +11,7 @@
     <body>
         <h1>Crowdfunding dApp</h1>
 
-        <form id="currentAccount" >
+        <form id="currentAccount">
             <div class="custom-input">
                 <label for="currentAddress"> Address </label>
                 <input
@@ -22,7 +22,12 @@
                     onchange="handleInput"
                 />
             </div>
-            <button type="button" class="changeAddress" id="changeAddress" onclick="handleClick">
+            <button
+                type="button"
+                class="changeAddress"
+                id="changeAddress"
+                onclick="handleClick"
+            >
                 Change Address
             </button>
         </form>
@@ -38,7 +43,12 @@
                     onchange="handleInput"
                 />
             </div>
-            <button type="button" class="addOwner" id="addOwner" onclick="handleClick">
+            <button
+                type="button"
+                class="addOwner"
+                id="addOwner"
+                onclick="handleClick"
+            >
                 Add New Owner
             </button>
         </form>
@@ -98,31 +108,23 @@
             <button type="button" id="requestCampaign">Request Campaign</button>
         </form>
 
-        <div id="proposalDashboard" class="">
+        <div id="proposalDashboard" class=""></div>
 
-        </div>
-
-        <script
-            type=""
-            src="../contracts/DAO.json"></script>
-        <script
-            type=""
-            src="../contracts/Campaign.json"></script>
-        <script
-            type=""
-            src="../contracts/NobelToken.json"></script>
+        <script type="" src="../contracts/DAO.json"></script>
+        <script type="" src="../contracts/Campaign.json"></script>
+        <script type="" src="../contracts/NobelToken.json"></script>
         <script
             type="text/javascript"
             src="../node_modules/web3/dist/web3.min.js"
         ></script>
         <script type="text/javascript" src="../src/js/getWeb3.js"></script>
         <script type="text/javascript" src="../src//js/initialise.js"></script>
-        <script type="text/javascript" src="../src/js/eventListeners.js"></script>
-        <script type="text/javascript" src="../src/js/actions.js"></script>
         <script
             type="text/javascript"
-            src="../src/js/helpers.js"
+            src="../src/js/eventListeners.js"
         ></script>
+        <script type="text/javascript" src="../src/js/actions.js"></script>
+        <script type="text/javascript" src="../src/js/helpers.js"></script>
         <script type="text/javascript" src="../src/js/app.js"></script>
     </body>
 </html>

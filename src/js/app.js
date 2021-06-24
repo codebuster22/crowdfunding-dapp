@@ -6,12 +6,10 @@ const durationInput = document.getElementById("duration");
 const requestCampaignBtn = document.getElementById("requestCampaign");
 const proposalForm = document.getElementById("proposalForm");
 const proposalDashBoard = document.getElementById("proposalDashboard");
-const addOwnerBtn = document.getElementById('addOwner');
-const ownerAddressInput = document.getElementById('ownerAddress');
-const currentAddressInput = document.getElementById('currentAddress');
-const changeAddressBtn = document.getElementById('changeAddress');
-
-console.log({proposalForm, proposalDashBoard});
+const addOwnerBtn = document.getElementById("addOwner");
+const ownerAddressInput = document.getElementById("ownerAddress");
+const currentAddressInput = document.getElementById("currentAddress");
+const changeAddressBtn = document.getElementById("changeAddress");
 
 const input = {};
 
@@ -27,7 +25,7 @@ const handleInput = (event) => {
 
 const handleClick = (event) => {
     const type = event.target.id;
-    switch (type.split('-')[0]) {
+    switch (type.split("-")[0]) {
         case "requestCampaign":
             requestCampaign([
                 input.proposalName,
@@ -61,18 +59,16 @@ const changeView = async (address) => {
 const ownerView = async () => {
     proposalForm.classList.add("hidden");
     proposals = await loadProposals();
-    proposals.forEach(
-        (proposal, index) => {
-            addProposalToView(proposal, index);
-        }
-    )
+    proposals.forEach((proposal, index) => {
+        addProposalToView(proposal, index);
+    });
     proposalDashBoard.classList.remove("hidden");
-}
+};
 
 const addProposalToView = async (proposal, index) => {
     const totalVotes = await getTotalVotes(index);
-    const proposalCard = document.createElement('div');
-    proposalCard.classList.add('proposal-card');
+    const proposalCard = document.createElement("div");
+    proposalCard.classList.add("proposal-card");
     proposalCard.id = `proposalCard-${index}`;
     proposalCard.innerHTML = `
     <div class="proposal-header">${proposal.proposalName}</div>
@@ -85,7 +81,7 @@ const addProposalToView = async (proposal, index) => {
         <div class="proposal-duration">${proposal.duration}</div>
         <div class="proposal-status">
             ${totalVotes}<br />
-            ${proposal.isDeployed == 1 ? "Deployed" : "Active" }
+            ${proposal.isDeployed == 1 ? "Deployed" : "Active"}
         </div>
     </div>
     <div class="proposal-action">
@@ -99,21 +95,23 @@ const addProposalToView = async (proposal, index) => {
         </button>
     </div>`;
     proposalDashBoard.appendChild(proposalCard);
-    document.getElementById(`proposalApprove-${index}`).addEventListener('click', handleClick);
-}
+    document
+        .getElementById(`proposalApprove-${index}`)
+        .addEventListener("click", handleClick);
+};
 
 const userView = () => {
     proposalDashBoard.classList.add("hidden");
     proposalForm.classList.remove("hidden");
-}
+};
 
 proposalNameInput.addEventListener("change", handleInput);
 documentHashInput.addEventListener("change", handleInput);
 maximumTargetInput.addEventListener("change", handleInput);
 minimumTargetInput.addEventListener("change", handleInput);
 durationInput.addEventListener("change", handleInput);
-ownerAddressInput.addEventListener('change', handleInput);
-currentAddressInput.addEventListener('change', handleInput);
+ownerAddressInput.addEventListener("change", handleInput);
+currentAddressInput.addEventListener("change", handleInput);
 requestCampaignBtn.addEventListener("click", handleClick);
-addOwnerBtn.addEventListener('click', handleClick);
-changeAddressBtn.addEventListener('click', handleClick);
+addOwnerBtn.addEventListener("click", handleClick);
+changeAddressBtn.addEventListener("click", handleClick);
