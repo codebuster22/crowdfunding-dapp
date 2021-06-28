@@ -9,6 +9,7 @@ const instantiateContract = (web3) => {
 };
 
 const startListening = () => {
+    listenToAccountChange();
     listenToNewProposalCreated();
     listenToNewOwnerAdded();
     listenToCampaignDeployed();
@@ -22,12 +23,11 @@ const updateAccountState = async (address) => {
 };
 
 getWeb3().then(async (data) => {
+    console.log(window.ethereum);
     state.web3 = data;
     instantiateContract(state.web3);
     state.accounts = await state.web3.eth.getAccounts();
     await updateAccountState(state.accounts[0]);
     startListening();
-    const deployedCampaignEvents = getPastEvents("CampaignDeployed", state.dao);
-    state.campaigns = await deployedCampaignEvents();
-    console.log(state);
+    state.campaigns = await getPastEvents("CampaignDeployed", state.dao)();
 });

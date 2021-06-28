@@ -11,27 +11,6 @@
     <body>
         <h1>Crowdfunding dApp</h1>
 
-        <form id="currentAccount">
-            <div class="custom-input">
-                <label for="currentAddress"> Address </label>
-                <input
-                    type="text"
-                    id="currentAddress"
-                    name="currentAddress"
-                    placeholder="Address"
-                    onchange="handleInput"
-                />
-            </div>
-            <button
-                type="button"
-                class="changeAddress"
-                id="changeAddress"
-                onclick="handleClick"
-            >
-                Change Address
-            </button>
-        </form>
-
         <form id="addOwnerForm" class="">
             <div class="custom-input">
                 <label for="ownerAddress"> New Owner Address </label>
@@ -109,6 +88,9 @@
         </form>
 
         <div id="proposalDashboard" class=""></div>
+
+        <div id="campaignDashboard" class="">
+        </div>
 
         <script type="" src="../contracts/DAO.json"></script>
         <script type="" src="../contracts/Campaign.json"></script>

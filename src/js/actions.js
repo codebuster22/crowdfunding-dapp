@@ -37,3 +37,7 @@ const addNewOwner = async (address) => {
         gasPrice: 200000000,
     });
 };
+
+const getContractState = (contract) => async (state) => {
+    return await contract.methods[state]().call();
+}

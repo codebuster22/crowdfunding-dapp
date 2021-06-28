@@ -68,3 +68,21 @@ const getPastEvents = (event, contract) => async () => {
         return { campaign, manager };
     });
 };
+
+const listenToTokensClaimed = (campaign) => {
+    campaign.once('TokensClaimed',(error, data) => {
+        console.log(error, data);
+    });
+}
+
+const listenToWithdraw = (campaign) => {
+    campaign.once('ContributionWithdrawen',(error, data) => {
+        console.log(error, data);
+    });
+}
+
+const listenToAccountChange = () => {
+    window.ethereum.on('accountsChanged', async (accounts) => {
+        await updateAccountState(accounts[0]);
+    })
+}
